@@ -42,7 +42,7 @@ const SignUpPage = () => {
               <div>
                 <h2 className='text-xl font-semibold'>Create an Account</h2>
                 <p className='text-sm opacity-70'>
-                  Join Varta and start talking with friends!
+                  Join Varta and start chatting with friends!
                 </p>
               </div>
 

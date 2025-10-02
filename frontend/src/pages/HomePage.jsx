@@ -73,7 +73,7 @@ const HomePage = () => {
               <div>
                 <h2 className='text-2xl sm:text-3xl font-bold tracking-tight'>Meet New Learners</h2>
                 <p className='opacity-70'>
-                  Discover perfect language exchange partners based on your profile
+                  Discover your friends and start chatting.
                 </p>
               </div>
             </div>
@@ -87,7 +87,7 @@ const HomePage = () => {
             <div className='card bg-base-200 p-6 text-center'>
               <h3 className='font-semibold text-lg mb-2'>No recommendations available</h3>
               <p className='text-base-content opacity-70'>
-                Check back later for new language partners!
+                Check back later for new friends!
               </p>
             </div>
           ): (
@@ -120,10 +120,6 @@ const HomePage = () => {
                         <span className='badge badge-secondary'>
                           {getLanguageFlag(user.nativeLanguage)}
                           Native: {captialize(user.nativeLanguage)}
-                        </span>
-                        <span className='badge badge-outline'>
-                          {getLanguageFlag(user.learningLanguage)}
-                          Learning: {captialize(user.learningLanguage)}
                         </span>
                       </div>
 

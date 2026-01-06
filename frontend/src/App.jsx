@@ -13,6 +13,8 @@ import PageLoader from './components/PageLoader.jsx'
 import useAuthUser from './hooks/useAuthUser.js'
 import Layout from './components/Layout.jsx'
 
+console.log("VITE_API_URL =", import.meta.env.VITE_API_URL);
+
 const App = () => {
 
   const {isLoading, authUser} = useAuthUser();

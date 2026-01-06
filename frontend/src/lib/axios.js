@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === "true";
 
-if (!apiUrl) {
-  throw new Error("❌ VITE_API_URL is NOT defined in this build");
-}
-
-export const axiosInstance = axios.create({
-  baseURL: `${apiUrl}/api`,
+const axiosInstance = axios.create({
+  baseURL: DEMO_MODE
+    ? "" // no backend calls in demo
+    : "https://chat-application-1-x4vb.onrender.com/api",
   withCredentials: true,
 });
+
+export default axiosInstance;

@@ -1,15 +1,28 @@
-import React from 'react'
-import { getAuthUser } from '../lib/api';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
+import { getAuthUser } from "../lib/api";
+
+const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === "true";
 
 const useAuthUser = () => {
-  const authUser = useQuery({
+  const { data: authUser, isLoading } = useQuery({
     queryKey: ["authUser"],
     queryFn: getAuthUser,
-    retry: false,
-});
+    enabled: !DEMO_MODE, // 🚀 STOP API CALL IN DEMO MODE
+  });
 
-    return {isLoading: authUser.isLoading, authUser: authUser.data?.user};
-}
+  if (DEMO_MODE) {
+    return {
+      authUser: {
+        _id: "demo-user",
+        name: "Demo User",
+        email: "demo@varta.app",
+        isOnboarded: true,
+      },
+      isLoading: false,
+    };
+  }
 
-export default useAuthUser
+  return { authUser, isLoading };
+};
+
+export default useAuthUser;

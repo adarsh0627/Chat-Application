@@ -21,7 +21,9 @@ app.use(express.json());
 app.use(cookieParser());
 if (process.env.NODE_ENV === "development") {
   app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173",
+      "https://chatapplication-qf8f72qxj.vercel.app"
+    ],
     credentials: true,
   }));
 }
